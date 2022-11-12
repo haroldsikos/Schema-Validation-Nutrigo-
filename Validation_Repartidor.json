@@ -1,0 +1,60 @@
+db.createCollection(
+    "Repartidor",{
+        validator:{
+            $jsonSchema:{
+                bsonType:"object",
+                description: "Documento que describe al repartidor de la empresa",
+                required:[
+                    "nombreRepartidor",
+                    "telefonoRepartidor",
+                    "promedioValoracion",
+                    "transporte",
+                ],
+                properties:{
+                    nombreRepartidor:{
+                        bsonType: "string",
+                        description: "'nombreRepartidor' debe ser un string y es requerido"
+                    },
+                    telefonoRepartidor:{
+                        bsonType: "int",
+                        description: "'telefonoRepartidor' debe ser un int y es requerido"
+                    },
+                    promedioValoracion:{
+                        bsonType: "int",
+                        description: "'promedioValoracion' debe ser un int y es requerido"
+                    },
+                    transporte:{
+                        bsonType:"object",
+                        description: "Documento que describe el tranporte de un repartidor",
+                        required:[
+                            "idTransporte",
+                            "tipoTransporte",
+                            "estado",
+                            "capacidad",
+                        ],
+                        properties:{
+                            idTransporte:{
+                                bsonType:"int",
+                                description:"'idTransporte' debe ser un int y requerido",
+                            },
+                            tipoTransporte:{
+                                bsonType:"string",
+                                description:"'tipotransporte' debe ser un string y requerido",
+                            },
+                            estado:{
+                                bsonType:"string",
+                                description:"'estado' debe ser un string y requerido",
+                            },
+                            capacidad:{
+                                bsonType:"int",
+                                description:"'capacidad' debe ser un int y requerido",
+                            },
+
+
+                        }
+                    }
+                }
+            }
+        }
+}
+)

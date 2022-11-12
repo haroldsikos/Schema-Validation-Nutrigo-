@@ -1,0 +1,82 @@
+db.createCollection(
+    "productos", {
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                description:  "Este documento describe el producto",
+                required: [
+                    "id_empresa",
+                    "nombre",
+                    "precio_unitario",
+                    "stock",
+                    "valor_nutricional",
+                    "categoria"
+                ],
+                properties: {
+                    id_empresa: {
+                        bsonType: "int",
+                        description: "id_empresa debe ser un int y es obligatorio"
+                    },
+                    nombre: {
+                        bsonType: "string",
+                        description: "nombre debe ser un string y es obligatorio"
+                    },
+                    precio_unitario: {
+                        bsonType: "double",
+                        description: "precio_unitario debe ser un double y es obligatorio"
+                    },
+                    stock: {
+                        bsonType: "int",
+                        description: "stock debe ser un int y es obligatorio"
+                    },
+                    valor_nutricional: {
+                        bsonType: "object",
+                        description:  "Este documento embebido describe el valor nutricional del producto",
+                        required: [
+                            "calorias",
+                            "proteinas",
+                            "carbohidratos",
+                            "grasas"
+                        ],
+                        properties: {
+                            calorias: {
+                                bsonType: "double",
+                                description: "calorias debe ser un double y es obligatorio"
+                            },
+                            proteinas: {
+                                bsonType: "double",
+                                description: "proteinas debe ser un double y es obligatorio"
+                            },
+                            carbohidratos: {
+                                bsonType: "double",
+                                description: "carbohidratos debe ser un double y es obligatorio"
+                            },
+                            grasas: {
+                                bsonType: "double",
+                                description: "grasas debe ser un double y es obligatorio"
+                            }
+                        }
+                    },
+                    categoria: {
+                        bsonType: "object",
+                        description:  "Este documento embebido describe el valor nutricional del producto",
+                        required: [
+                            "nombre_categoria",
+                            "descripcion"
+                         ],
+                        properties: {
+                            nombre_categoria: {
+                                bsonType: "string",
+                                description: "nombre_categoria debe ser un string y es obligatorio"
+                            },
+                            descripcion: {
+                                bsonType: "string",
+                                description: "descripcion debe ser un string y es obligatorio"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+)

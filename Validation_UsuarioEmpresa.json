@@ -1,0 +1,82 @@
+
+db.createCollection(
+    "Usuario_empresa",{
+        validator:{
+            $jsonSchema:
+            {
+                bsontype: "object",
+                description: "Documento que describe a un Usuario empresa",
+                required:
+                [
+                    "nombreEmpresa",
+                    "razonSocial",
+                    "telefonoEmpresa",
+                    "email",
+                    "contraseña",
+                    "localización"
+                ],
+                properties:{
+                    nombreEmpresa:{
+                        bsontype:"string",
+                        description:"'nombreEmpresa' debe ser un string y es requerido"
+                    },
+                    razonSocial:{
+                        bsontype:"string",
+                        description:"'razonSocial' es un string y es requerido"
+                    },
+                    telefonoEmpresa:{
+                        bsontype:"string",
+                        description: "'telefonoEmpresa' es un string y es requerido"
+                    },
+                    email:{
+                        bsontype:"string",
+                        description:"'email' es un string y es requerido"
+                    },
+                    contraseña:{
+                        bsontype:"string",
+                        description:"'contraseña' es un string y es requerido"
+                    },
+                    contraseña:{
+                        bsontype:"object",
+                        required:
+                        [
+                            "país",
+                            "region",
+                            "distrito",
+                            "codigoPostal",
+                            "nombreCalle",
+                            "numCalle"
+                        ],
+                        properties:{
+                            país:{
+                                bsontype:"string",
+                                description:"'país' es un string y es requerido"
+                            },
+                            region:{
+                                bsontype:"string",
+                                description:"'region' es un string y es requerido"
+                            },
+                            distrito:{
+                                bsontype:"string",
+                                description:"'distrito' es un string y es requerido"
+                            },
+                            codigoPostal:{
+                                bsontype:"int",
+                                description:"'codigoPostal' es un int y es requerido"
+                            },
+                            nombreCalle:{
+                                bsontype:"string",
+                                description:"'nombreCalle' es un string y es requerido"
+                            },
+                            numCalle:{
+                                bsontype:"string",
+                                description:"'numCalle' es un string y es requerido"
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+)d

@@ -1,0 +1,66 @@
+
+db.createCollection(
+    "orden",{
+        validator:{
+            $jsonSchema:
+            {
+                bsontype: "object",
+                description: "Documento que describe a una orden",
+                required:
+                [
+                    "idRepartidor",
+                    "idConsumidor",
+                    "fechaOrden",
+                    "medioDePago",
+                    "ordenDetalles"
+                ],
+                properties:{
+                    idRepartidor:{
+                        bsonType:"int",
+                        description: "'idRepartidor' debe ser un string y es requerido"
+                    },
+                    idConsumidor:{
+                        bsonType:"int",
+                        description: "'idConsumidor' debe ser un string y es requerido"
+                    },
+                    fechaOder:{
+                        bsonType:"date",
+                        description: "'fechaOrder' debe ser un string y es requerido"
+                    },
+                    medioPago:{
+                        bsonType:"string",
+                        description: "'medioPago' debe ser un string y es requerido"
+                    },
+                    ordenDetalles:{
+                        bsonType:"object",
+                        required:[
+                            "idProducto",
+                            "descuento",
+                            "cantidadProducto",
+                            "precioTotal"
+                        ],
+                        properties:{
+
+                            idProducto:{
+                                bsonType:"int",
+                                description: "'idProducto' debe ser un int y es requerido. Debe contener el id del producto"
+                            },
+                            descuento:{
+                                bsonType:"int",
+                                description:"'descuento' debe ser un int  y es requerido"
+                            },
+                            cantidadProducto:{
+                                bsonType:"int",
+                                description:"'cantidadProducto' debe ser un int  y es requerido"
+                            },
+                            prectioTotal:{
+                                bsonType:"int",
+                                description:"'precioTotal' debe ser un int y es requerido"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+)

@@ -1,0 +1,82 @@
+db.createCollection(
+    "UsuarioConsumidor",
+    {validator: {
+                    $jsonSchema:
+                        {
+                            bsonType: "object",
+                            description: "Documento que describe a un Usuario Consumidor",
+                            required:
+                            [
+                                "nombreConsumidor",
+                                "telefonoConsumidor",
+                                "añoNacimiento",
+                                "email",
+                                "contraseña",
+                                "localización"
+                            ],
+                            properties: {
+                                nombreConsumidor: {
+                                    bsontype: "string",
+                                    description: "'nombreConsumidor' debe ser un string y es requerido"
+                                },
+                                telefonoConsumidor: {
+                                    bsontype: "int",
+                                    description: "'telefonoConsumidor' debe ser un int y es requerido"
+                                },
+                                añoNacimiento: {
+                                    bsontype: "date",
+                                    description: "'añoNacimiento' debe ser un date y es requerido"
+                                },
+                                email: {
+                                    bsontype: "string",
+                                    description: "'email' debe ser un string y es requerido"
+                                },
+                                contraseña: {
+                                    bsontype: "string",
+                                    description: "'contraseña' debe ser un string y es requerido"
+                                },
+                                localización:{
+                                    bsonType: "object",
+                                    required:
+                                    [
+                                        "pais",
+                                        "region",
+                                        "distrito",
+                                        "codigoPostal",
+                                        "nombreCalle",
+                                        "numCalle"
+                                    ],
+                                    properties: {
+                                        pais: {
+                                            bsontype: "string",
+                                            description: "'pais' debe ser un string y es requerido"
+                                        },
+                                        region: {
+                                            bsontype: "string",
+                                            description: "'region' debe ser un string y es requerido"
+                                        },
+                                        distrito: {
+                                            bsontype: "string",
+                                            description: "'distrito' debe ser un string y es requerido"
+                                        },
+                                        codigoPostal: {
+                                            bsontype: "int",
+                                            description: "'codigoPostal' debe ser un int y es requerido"
+                                        },
+                                        nombreCalle: {
+                                            bsontype: "string",
+                                            description: "'nombreCalle' debe ser un string y es requerido"
+                                        },
+                                        numCalle: {
+                                            bsontype: "int",
+                                            description: "'numCalle' debe ser un int y es requerido"
+                                        },
+                                    }
+                                    }
+                            }
+                        }
+                }
+    })
+
+
+
